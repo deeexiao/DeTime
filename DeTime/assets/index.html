@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Standard Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Homepage</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom Gradient for Navigation */
+        .gradient-bg {
+            background: linear-gradient(90deg, rgba(102, 51, 153, 1) 0%, rgba(50, 50, 150, 1) 50%, hwb(0 0% 100%) 100%);
+        }
+    </style>
+
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="gradient-bg p-4 text-white">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Website Logo and Title -->
+            <div>
+                <span class="font-semibold text-xl tracking-wide">DeTime</span>
+            </div>
+            <!-- Navigation Links -->
+            <div class="flex space-x-4">
+                <a href="index.html" class="font-semibold text-purple-300 hover:text-gray-200">Homepage</a>
+                <a href="calendar.html" class="hover:text-gray-200">Events View</a>
+                <a href="news.html" class="hover:text-gray-200">News</a>
+                <a href="#wallet" class="hover:text-gray-200">Wallet</a>
+                <!-- Other Links -->
+            </div>
+        </div>
+    </nav>
+
+
+<!-- ...前面的代码 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2023年12月日历</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <div class="calendar-module m-8">
+        <!-- 选择框和日历头部 -->
+        <div class="flex justify-between items-center mb-4">
+            <div>
+                <h1 class="text-3xl font-bold">DECEMBER</h1>
+                <h2 class="text-3xl font-bold">2023</h2>
+            </div>
+            <!-- 下拉选择框 -->
+            <select id="eventFilter" class="p-2 rounded" onchange="filterEvents(this.value);">
+                <option value="all">Type Select</option>
+                <option value="nft">NFT Only</option>
+                <option value="defi">DeFi Only</option>
+                <option value="gamefi">GameFi Only</option>
+            </select>
+        </div>
+        <!-- 日历表格 -->
+            <!-- 表头和表体同您提供的代码 -->
+        </table>
+    </div>
+    <script>
+        function filterEvents(type) {
+            // 获取所有事件点
+            var dots = document.querySelectorAll('.event-dot');
+            // 遍历并更新显示状态
+            dots.forEach(function(dot) {
+                // 如果选的是所有事件或者当前事件点的类型匹配，则显示
+                if (type === 'all' || dot.classList.contains(type)) {
+                    dot.style.display = 'inline-block';
+                } else {
+                    dot.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2023年12月日历</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .event-dot {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 4px;
+        }
+        .nft { background-color: #34D399; } /* NFT事件颜色 */
+        .defi { background-color: #60A5FA; } /* DeFi事件颜色 */
+        .gamefi { background-color: #A78BFA; } /* GameFi事件颜色 */
+        .hidden { display: none; } /* 隐藏元素的类 */
+        .event-date { position: relative; cursor: pointer; } /* 使日期可点击 */
+    </style>
+
+    <!-- 日历模块容器 -->
+    <div class="calendar-module m-8">
+        <!-- 日历表格 -->
+        <table class="table-fixed border-collapse w-full">
+            <!-- 日历表头 -->
+                <tr>
+                    <th class="border-b p-2">MON</th>
+                    <th class="border-b p-2">TUE</th>
+                    <th class="border-b p-2">WED</th>
+                    <th class="border-b p-2">THU</th>
+                    <th class="border-b p-2">FRI</th>
+                    <th class="border-b p-2">SAT</th>
+                    <th class="border-b p-2 text-red-500">SUN</th>
+                </tr>
+            <!-- 日历表体 -->
+            <tbody class="text-center">
+                <!-- 第一周 -->
+                <tr class="bg-gray-200">
+                    <td class="p-4"></td> <!-- 12月份第一天是周五，所以这周的前四天为空 -->
+                    <td class="p-4"></td>
+                    <td class="p-4"></td>
+                    <td class="p-4"></td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-01')">1</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-02')">2</td>
+                    <td class="p-4 text-red-500 event-date" onclick="goToEventDetails('2023-12-03')">3</td>
+                </tr>
+                <!-- 第二周 -->
+                <tr class="bg-gray-200">
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-04')">4</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-05')">5</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-06')">6</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-07')">7</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-08')">8</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-09')">9</td>
+                    <td class="p-4 text-red-500 event-date" onclick="goToEventDetails('2023-12-10')">10</td>
+                <!-- 第三周 -->
+                <tr class="bg-gray-200">
+                    <!-- 重复前面的模式填充其他日期 -->
+                    <td class="p-4 relative">
+                        <div class="event-date" onclick="goToEventDetails('2023-12-11')">11
+                            <span class="event-dot nft"></span> <!-- NFT事件 -->
+                        </div>
+                    </td>
+                    <td class="p-4 relative">
+                        <div class="event-date" onclick="goToEventDetails('2023-12-12')">12
+                            <span class="event-dot gamefi"></span> <!-- GameFi事件 -->
+                        </div>
+                    </td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-13')">13</td>
+                    <td class="p-4 relative">
+                        <div class="event-date" onclick="goToEventDetails('2023-12-14')">14
+                            <span class="event-dot defi"></span> <!-- DeFi事件 -->
+                        </div>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-15')">15</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-16')">16</td>
+                    <td class="p-4 text-red-500 event-date">
+                        <div class="event-date" onclick="goToEventDetails('2023-12-17')">17
+                            <span class="event-dot gamefi"></span> <!-- GameFi事件 -->
+                        </div>
+                    </td>
+                </tr>
+                <!-- 第四周 -->
+                <tr class="bg-gray-200">
+                    <!-- 重复前面的模式填充其他日期 -->
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-18')">18</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-19')">19</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-20')">20</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-21')">21</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-22')">22</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-23')">23</td>
+                    <td class="p-4 text-red-500 event-date" onclick="goToEventDetails('2023-12-24')">24</td>
+                </tr>
+                <!-- 第五周 -->
+                <tr class="bg-gray-200">
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-25')">25</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-26')">26</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-27')">27</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-28')">28</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-29')">29</td>
+                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-30')">30</td>
+                    <td class="p-4 text-red-500 event-date" onclick="goToEventDetails('2023-12-31')">31</td>
+</head>
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self';"/>
+
+<footer class="container mx-auto p-6">
+    <h2 class="text-3xl font-bold text-center mb-6">Most Popular Events</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- NFT Category -->
+        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h3 class="text-green-500 font-bold">NFT</h3>
+            <a href="#nft-news1" class="hover:underline">
+                <h4 class="font-bold mt-2 mb-1">Metaverse Land Sales Hit Record Highs</h4>
+                <p class="text-gray-600">Virtual real estate is booming as investors and enthusiasts stake their claims in emerging metaverse platforms.</p>
+            </a>
+            <p class="text-sm mt-2 text-gray-500">Dec 19, 2023</p>
+        </div>
+        <!-- DeFi Category -->
+        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h3 class="text-blue-500 font-bold">DeFi</h3>
+            <a href="#defi-news1" class="hover:underline">
+                <h4 class="font-bold mt-2 mb-1">Revolutionizing Finance: DeFi Loans Soar</h4>
+                <p class="text-gray-600">The decentralized finance sector disrupts traditional banking with secure, blockchain-based loans.</p>
+            </a>
+            <p class="text-sm mt-2 text-gray-500">Dec 15, 2023</p>
+        </div>
+        <!-- GameFi Category -->
+        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h3 class="text-purple-500 font-bold">GameFi</h3>
+            <a href="#gamefi-news1" class="hover:underline">
+                <h4 class="font-bold mt-2 mb-1">GameFi: The New Frontier for Gamers and Investors</h4>
+                <p class="text-gray-600">Blockchain gaming platforms merge entertainment with economic opportunities, creating a new genre of digital assets.</p>
+            </a>
+            <p class="text-sm mt-2 text-gray-500">Dec 20, 2023</p>
+        </div>
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+              }
+              
+              body {
+                display: flex;
+                flex-direction: column;
+              }
+              
+              .content {
+                flex: 1 0 auto; /* This will push the footer to the bottom */
+              }
+              
+              footer {
+                flex-shrink: 0; /* Prevent footer from shrinking */
+              }
+        </style>
+    </footer>
+</body>
+</html>

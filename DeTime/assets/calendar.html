@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Standard Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Homepage</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom Gradient for Navigation */
+        .gradient-bg {
+            background: linear-gradient(90deg, rgba(102, 51, 153, 1) 0%, rgba(50, 50, 150, 1) 50%, hwb(0 0% 100%) 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="gradient-bg p-4 text-white">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Website Logo and Title -->
+            <div>
+                <a href="index.html" class="text-xl tracking-wide">&larr; Back</a>
+            </div>
+            <!-- Navigation Links -->
+            <div class="flex space-x-4">
+                <a href="index.html" class="hover:text-gray-200">Homepage</a>
+                <a href="calendar.html" class="font-semibold text-purple-300 hover:text-gray-200">Events View</a>
+                <a href="news.html" class="hover:text-gray-200">News</a>
+                <a href="#wallet" class="hover:text-gray-200">Wallet</a>
+                <!-- Other Links -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- ...前面的代码 -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2023年12月日历</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+        <div class="calendar-module m-8">
+            <!-- 选择框和日历头部 -->
+            <div class="flex justify-between items-center mb-4">
+                <div>
+                    <h1 class="text-3xl font-bold">DECEMBER</h1>
+                    <h2 class="text-3xl font-bold">2023</h2>
+                </div>
+                <!-- 下拉选择框 -->
+                <select id="eventFilter" class="p-2 rounded" onchange="filterEvents(this.value);">
+                    <option value="all">Type Select</option>
+                    <option value="nft">NFT Only</option>
+                    <option value="defi">DeFi Only</option>
+                    <option value="GameFi">GameFi Only</option>
+                </select>
+            </div>
+            <!-- 日历表格 -->
+            <table class="table-fixed border-collapse w-full">
+                <!-- 表头和表体同您提供的代码 -->
+            </table>
+        </div>
+        
+    <!-- 日历日期选择器 -->
+    <!-- 
+    <div class="flex justify-center items-center p-2">
+        <span class="font-bold text-lg">December 2023 &darr;</span>
+    </div>
+    -->
+    <div id="content-11" class="date-content hidden">...</div>
+    <div id="content-12" class="date-content hidden">...</div>
+    <div id="content-13" class="date-content hidden">...</div>
+    <div id="content-14" class="date-content hidden">...</div>
+    <div id="content-15" class="date-content hidden">...</div>
+    <div id="content-16" class="date-content hidden">...</div>
+    <div id="content-17" class="date-content hidden">...</div>
+
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>周日历</title>
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+      <style>
+        .sticky {
+          position: sticky;
+          top: 0;
+          z-index: 10;
+        }
+        .scroll-container {
+          overflow-y: auto;
+          height: 600px; /* 可以根据需要调整高度 */
+          position: relative;
+        }
+        .time-slot {
+          width: 100px; /* 可以根据实际情况调整宽度 */
+          position: absolute;
+          left: 0;
+        }
+        .events-container {
+          margin-left: 100px; /* 应与.time-slot的宽度相同 */
+        }
+      </style>
+    <body class="bg-gray-100">
+    
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>周日历</title>
+          <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+          <style>
+            .sticky {
+              position: sticky;
+              top: 0;
+              background: white;
+              z-index: 10;
+            }
+            .date-active {
+              background-color: rgb(140, 122, 255);
+              color: white;
+              border-radius: 0%;
+            }
+          </style>
+        <style>
+  .date-number {
+    cursor: pointer;
+    margin-top: 0.5rem; /* 与星期文本保持距离 */
+    padding: 0.5rem; /* 确保数字有足够的空间 */
+    border-radius: 50%; /* 使按钮圆角，当box-shadow作为圆圈时 */
+    position: relative; /* 定位用于z-index */
+    z-index: 1; /* 确保在box-shadow之上 */
+  }
+  .date-number.date-active {
+    box-shadow: 0 0 0 0px blue; /* 创建蓝色圆圈效果，圆圈大小可以通过调整box-shadow的最后一个值来控制 */
+  }
+</style>
+
+<style>
+    .date-number {
+      cursor: pointer;
+      margin-top: 0.5rem; /* 与星期文本保持距离 */
+      padding: 0.5rem; /* 确保数字有足够的空间 */
+      border-radius: 50%; /* 使按钮圆角，当box-shadow作为圆圈时 */
+      position: relative; /* 定位用于z-index */
+      z-index: 1; /* 确保在box-shadow之上 */
+    }
+    .date-number.date-active {
+      box-shadow: 0 0 0 0px blue; /* 创建蓝色圆圈效果，圆圈大小可以通过调整box-shadow的最后一个值来控制 */
+    }
+  </style>
+        <body class="bg-gray-100">
+          <div class="flex justify-between items-center my-4 sticky top-0 flex justify-between text-sm px-10 py-4 bg-white shadow">
+            
+        <!-- Previous Button -->
+        <button id="prev" class="p-1 rounded bg-gray-200 hover:bg-gray-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <!-- Weekdays Header -->
+
+            <div class="flex flex-col items-center">
+              <span>MON</span>
+              <button class="date-number" data-date="11">11</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>TUE</span>
+              <button class="date-number" data-date="12">12</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>WED</span>
+              <button class="date-number" data-date="13">13</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>THU</span>
+              <button class="date-number" data-date="14">14</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>FRI</span>
+              <button class="date-number" data-date="15">15</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>SAT</span>
+              <button class="date-number" data-date="16">16</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>SUN</span>
+              <button class="date-number" data-date="17">17</button>
+            </div>
+
+
+          <!-- Next Button -->
+         <button id="next" class="p-1 rounded bg-gray-200 hover:bg-gray-300 text-sm">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+           </svg>
+        </button>
+      </div>
+    </div>
+      <!-- 日历的时间轴 -->
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Events Calendar</title>
+          <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+          <style>
+              .sticky {
+                  position: sticky;
+                  top: 0;
+                  z-index: 10;
+                  background: white;
+              }
+              .scroll-container {
+                  overflow-y: auto;
+                  height: 600px;
+                  position: relative;
+              }
+              .event {
+                  position: absolute;
+                  left: 100px; /* Align with the time-slot */
+                  right: 0;
+                  border-radius: 12px;
+                  padding: 12px;
+                  margin: 4px 0;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              }
+              /* Different colors for different event types */
+              .nft-event { background-color: #34D399; }
+              .defi-event { background-color: #60A5FA; }
+              .gamefi-event { background-color: #A78BFA; }
+          </style>
+      <body class="bg-gray-100">
+          <!-- Navigation Bar -->
+          <!-- ...existing navigation bar... -->
+      
+          <!-- Calendar Module -->
+          <div class="calendar-module m-8">
+              <!-- ...existing calendar module... -->
+          </div>
+      
+          <!-- Sticky Weekday Header -->
+          <!-- ...existing sticky header... -->
+      
+          <!-- Scrollable Time Slots and Events Container -->
+          <div class="scroll-container p-4">
+              <!-- Time Slot -->
+              <!-- ...existing time slot... -->
+      
+              <!-- Events Container -->
+              <div class="events-container">
+                  <!-- Event Cards -->
+                  <div class="event defi-event" style="top: 8rem; height: 3.5rem;">
+                      <span>Defi project</span>
+                      <div class="text-xs">2:30 AM - 3:30 AM</div>
+                  </div>
+                  <div class="event gamefi-event" style="top: 16rem; height: 3.5rem;">
+                      <span>GameFi Meeting</span>
+                      <div class="text-xs">5:00 PM - 6:00 PM</div>
+                  </div>
+                  <!-- ...other events... -->
+              </div>
+          </div>
+        </div>
+        
+        <!--定义高亮的颜色-->
+          <style>
+            .highlighted {
+            background-color: yellow; /* 你可以选择适合你网站风格的颜色 */
+            }
+        </style>
+  
+          <script>
+              // JavaScript for generating time slots
+              const timeSlotContainer = document.querySelector('.scroll-container');
+              for (let i = 0; i < 24; i++) {
+                  const timeLabel = document.createElement('div');
+                  timeLabel.className = 'text-xs py-3';
+                  timeLabel.textContent = `${i === 0 || i === 12 ? 12 : i % 12} ${i < 12 ? 'AM' : 'PM'}`;
+                  timeLabel.style.position = 'absolute';
+                  timeLabel.style.top = `${i * 3}rem`; // Assuming each hour block is 3rem tall
+                  timeSlotContainer.appendChild(timeLabel);
+              }
+              const eventsData = {
+        "11": [
+          { type: "nft-event", title: "NFT Launch", time: "12:00 AM - 1:15 AM" },
+        ],
+        "12": [
+          { type: "gamefi-event", title: "Gamefi IEO Launch", time: "12:00 AM - 1:15 AM" },
+        ],
+        "14": [
+          { type: "defi-event", title: "IDO Launch(DeFi)", time: "12:00 AM - 1:15 AM" },
+        ],
+        "17": [
+          { type: "gamefi-event", title: "GameFi Event", time: "12:00 AM - 1:15 AM" },
+        ],
+      };
+      
+      const dates = document.querySelectorAll('.date-number');
+      dates.forEach(date => {
+        date.addEventListener('click', function() {
+          dates.forEach(d => d.classList.remove('date-active'));
+          date.classList.add('date-active');
+          
+          const selectedDate = date.getAttribute('data-date');
+          const eventsForDate = eventsData[selectedDate] || [];
+          
+          const eventsContainer = document.querySelector('.events-container');
+          eventsContainer.innerHTML = '';
+          eventsForDate.forEach(event => {
+            const eventDiv = document.createElement('div');
+            eventDiv.className = `event ${event.type}`;
+            eventDiv.innerHTML = `
+              <span>${event.title}</span>
+              <div class="text-xs">${event.time}</div>
+            `;
+            eventsContainer.appendChild(eventDiv);
+          });
+        });
+      });
+      
+      document.querySelectorAll('.event').forEach(eventDiv => {
+    eventDiv.addEventListener('dblclick', function() {
+        // 切换高亮状态
+        eventDiv.classList.toggle('highlighted');
+    });
+});
+
+// 选择包含所有事件的容器
+const eventsContainer = document.querySelector('.events-container');
+
+// 为这个容器添加一个双击事件监听器
+eventsContainer.addEventListener('dblclick', function(e) {
+    // 检查被双击的元素是否有 'event' 类
+    if (e.target.classList.contains('event')) {
+        // 切换高亮状态
+        e.target.classList.toggle('highlighted');
+    }
+});
+
+          </script>
+      </body>
+      </html>
+
