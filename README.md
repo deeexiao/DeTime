@@ -24,7 +24,7 @@ DeTime caters to individuals who are deeply engaged in the blockchain and crypto
 
 To experience DeTime:
 
-1. Visit [DeTime](https://x7tva-caaaa-aaaan-qlrla-cai.icp0.io/index.html) to access the homepage.
+1. Visit [DeTime](https://hr6tj-aaaaa-aaaan-qlsha-cai.icp0.io/) to access the homepage.
 2. Navigate through the application using the links provided to explore the calendar and news features.
 
 ## Contribute to DeTime
