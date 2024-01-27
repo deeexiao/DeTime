@@ -5,64 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web3 Homepage</title>
-
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
     <style>
         /* Custom Gradient for Navigation */
         .gradient-bg {
             background: linear-gradient(90deg, rgba(102, 51, 153, 1) 0%, rgba(50, 50, 150, 1) 50%, hwb(0 0% 100%) 100%);
         }
-
-        /* Custom Styles for Calendar Events */
-        .event-dot {
-            height: 10px;
-            width: 10px;
-            border-radius: 50%;
-            display: inline-block;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-bottom: 4px;
-        }
-        .nft { background-color: #34D399; } /* NFT Event Color */
-        .defi { background-color: #60A5FA; } /* DeFi Event Color */
-        .gamefi { background-color: #A78BFA; } /* GameFi Event Color */
-        .hidden { display: none; } /* Class for Hiding Elements */
-        .event-date { position: relative; cursor: pointer; } /* Making Dates Clickable */
-        
-        /* Footer Styles */
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-        .content {
-            flex: 1 0 auto; /* This will push the footer to the bottom */
-        }
-        footer {
-            flex-shrink: 0; /* Prevent footer from shrinking */
-        }
     </style>
 </head>
-
 <body class="bg-gray-100">
     <!-- Navigation Bar -->
     <nav class="gradient-bg p-4 text-white">
         <div class="container mx-auto flex items-center justify-between">
             <!-- Website Logo and Title -->
             <div>
-                <span class="font-semibold text-xl tracking-wide">DeTime</span>
+                <a href="index.html" class="text-xl tracking-wide">&larr; Back</a>
             </div>
             <!-- Navigation Links -->
             <div class="flex space-x-4">
-                <a href="index.html" class="font-semibold text-purple-300 hover:text-gray-200">Homepage</a>
-                <a href="calendar.html" class="hover:text-gray-200">Events View</a>
+                <a href="index.html" class="hover:text-gray-200">Homepage</a>
+                <a href="calendar.html" class="font-semibold text-purple-300 hover:text-gray-200">Events View</a>
                 <a href="news.html" class="hover:text-gray-200">News</a>
                 <a href="#wallet" class="hover:text-gray-200">Wallet</a>
                 <!-- Other Links -->
@@ -70,181 +33,288 @@
         </div>
     </nav>
 
-    <!-- Calendar Module -->
-    <div class="calendar-module m-8">
-        <!-- Calendar Header -->
-        <div class="flex justify-between items-center mb-4">
-            <div>
-                <h1 class="text-3xl font-bold">DECEMBER</h1>
-                <h2 class="text-3xl font-bold">2023</h2>
+    <!-- ...前面的代码 -->
+        <title>2023年12月日历</title>
+
+        <div class="calendar-module m-8">
+            <!-- 选择框和日历头部 -->
+            <div class="flex justify-between items-center mb-4">
+                <div>
+                    <h1 class="text-3xl font-bold">DECEMBER</h1>
+                    <h2 class="text-3xl font-bold">2023</h2>
+                </div>
+                <!-- 下拉选择框 -->
+                <select id="eventFilter" class="p-2 rounded" onchange="filterEvents(this.value);">
+                    <option value="all">Type Select</option>
+                    <option value="nft">NFT Only</option>
+                    <option value="defi">DeFi Only</option>
+                    <option value="GameFi">GameFi Only</option>
+                </select>
             </div>
-            <!-- Dropdown for Event Filtering -->
-            <select id="eventFilter" class="p-2 rounded" onchange="filterEvents(this.value);">
-                <option value="all">Type Select</option>
-                <option value="nft">NFT Only</option>
-                <option value="defi">DeFi Only</option>
-                <option value="gamefi">GameFi Only</option>
-            </select>
+            <!-- 日历表格 -->
+            <table class="table-fixed border-collapse w-full">
+                <!-- 表头和表体同您提供的代码 -->
+            </table>
         </div>
-
-        <!-- Calendar Table -->
-        <table class="table-fixed border-collapse w-full">
-            <!-- Calendar Header -->
-            <thead>
-                <tr>
-                    <th class="border-b p-2">MON</th>
-                    <th class="border-b p-2">TUE</th>
-                    <th class="border-b p-2">WED</th>
-                    <th class="border-b p-2">THU</th>
-                    <th class="border-b p-2">FRI</th>
-                    <th class="border-b p-2">SAT</th>
-                    <th class="border-b p-2 text-red-500">SUN</th>
-                </tr>
-            </thead>
-            <!-- Calendar Body -->
-            <tbody class="text-center">
-                <!-- Week Rows -->
-                   <!-- 第一周 -->
-                   <tr class="bg-gray-200">
-                    <td class="p-4"></td>
-                    <!-- 12月份第一天是周五，所以这周的前四天为空 -->
-                    <td class="p-4"></td>
-                    <td class="p-4"></td>
-                    <td class="p-4"></td>
-                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-01')">1</td>
-                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-02')">2</td>
-                    <td class="p-4 text-red-500 event-date" onclick="goToEventDetails('2023-12-03')">3</td>
-                </tr>
-                <!-- 第二周 -->
-                <tr class="bg-gray-200">
-                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-04')">4</td>
-                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-05')">5</td>
-                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-06')">6</td>
-                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-07')">7</td>
-                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-08')">8</td>
-                    <td class="p-4 event-date" onclick="goToEventDetails('2023-12-09')">9</td>
-                    <td class="p-4 text-red-500 event-date" onclick="goToEventDetails('2023-12-10')">10</td>
-                    <!-- 第三周 -->
-                    <tr class="bg-gray-200">
-                        <!-- 重复前面的模式填充其他日期 -->
-                        <td class="p-4 relative">
-                            <div class="event-date" onclick="goToEventDetails('2023-12-11')">11
-                                <span class="event-dot nft"></span>
-                                <!-- NFT事件 -->
-                            </div>
-                        </td>
-                        <td class="p-4 relative">
-                            <div class="event-date" onclick="goToEventDetails('2023-12-12')">12
-                                <span class="event-dot gamefi"></span>
-                                <!-- GameFi事件 -->
-                            </div>
-                        </td>
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-13')">13</td>
-                        <td class="p-4 relative">
-                            <div class="event-date" onclick="goToEventDetails('2023-12-14')">14
-                                <span class="event-dot defi"></span>
-                                <!-- DeFi事件 -->
-                            </div>
-                            <td class="p-4 event-date" onclick="goToEventDetails('2023-12-15')">15</td>
-                            <td class="p-4 event-date" onclick="goToEventDetails('2023-12-16')">16</td>
-                            <td class="p-4 text-red-500 event-date">
-                                <div class="event-date" onclick="goToEventDetails('2023-12-17')">17
-                                    <span class="event-dot gamefi"></span>
-                                    <!-- GameFi事件 -->
-                                </div>
-                            </td>
-                    </tr>
-                    <!-- 第四周 -->
-                    <tr class="bg-gray-200">
-                        <!-- 重复前面的模式填充其他日期 -->
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-18')">18</td>
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-19')">19</td>
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-20')">20</td>
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-21')">21</td>
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-22')">22</td>
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-23')">23</td>
-                        <td class="p-4 text-red-500 event-date" onclick="goToEventDetails('2023-12-24')">24</td>
-                    </tr>
-                    <!-- 第五周 -->
-                    <tr class="bg-gray-200">
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-25')">25</td>
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-26')">26</td>
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-27')">27</td>
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-28')">28</td>
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-29')">29</td>
-                        <td class="p-4 event-date" onclick="goToEventDetails('2023-12-30')">30</td>
-                        <td class="p-4 text-red-500 event-date" onclick="goToEventDetails('2023-12-31')">31</td>
-</head>
-            </tbody>
-        </table>
+        
+    <!-- 日历日期选择器 -->
+    <!-- 
+    <div class="flex justify-center items-center p-2">
+        <span class="font-bold text-lg">December 2023 &darr;</span>
     </div>
+    -->
+    <div id="content-11" class="date-content hidden">...</div>
+    <div id="content-12" class="date-content hidden">...</div>
+    <div id="content-13" class="date-content hidden">...</div>
+    <div id="content-14" class="date-content hidden">...</div>
+    <div id="content-15" class="date-content hidden">...</div>
+    <div id="content-16" class="date-content hidden">...</div>
+    <div id="content-17" class="date-content hidden">...</div>
 
-    <!-- Event Filtering Script -->
-    <script>
-        function filterEvents(type) {
-            var dots = document.querySelectorAll('.event-dot');
-            dots.forEach(function(dot) {
-                if (type === 'all' || dot.classList.contains(type)) {
-                    dot.style.display = 'inline-block';
-                } else {
-                    dot.style.display = 'none';
-                }
-            });
+      <title>周日历</title>
+      <style>
+        .sticky {
+          position: sticky;
+          top: 0;
+          z-index: 10;
         }
-    </script>
-
-    <!-- Footer Section -->
-    <footer class="container mx-auto p-6">
-        <h2 class="text-3xl font-bold text-center mb-6">Most Popular Events</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- Event Categories -->
-            <!-- NFT, DeFi, GameFi Sections -->
-        <!-- NFT Category -->
-        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-            <h3 class="text-green-500 font-bold">NFT</h3>
-            <a href="#nft-news1" class="hover:underline">
-                <h4 class="font-bold mt-2 mb-1">Metaverse Land Sales Hit Record Highs</h4>
-                <p class="text-gray-600">Virtual real estate is booming as investors and enthusiasts stake their claims in emerging metaverse platforms.</p>
-            </a>
-            <p class="text-sm mt-2 text-gray-500">Dec 19, 2023</p>
-        </div>
-        <!-- DeFi Category -->
-        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-            <h3 class="text-blue-500 font-bold">DeFi</h3>
-            <a href="#defi-news1" class="hover:underline">
-                <h4 class="font-bold mt-2 mb-1">Revolutionizing Finance: DeFi Loans Soar</h4>
-                <p class="text-gray-600">The decentralized finance sector disrupts traditional banking with secure, blockchain-based loans.</p>
-            </a>
-            <p class="text-sm mt-2 text-gray-500">Dec 15, 2023</p>
-        </div>
-        <!-- GameFi Category -->
-        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-            <h3 class="text-purple-500 font-bold">GameFi</h3>
-            <a href="#gamefi-news1" class="hover:underline">
-                <h4 class="font-bold mt-2 mb-1">GameFi: The New Frontier for Gamers and Investors</h4>
-                <p class="text-gray-600">Blockchain gaming platforms merge entertainment with economic opportunities, creating a new genre of digital assets.</p>
-            </a>
-            <p class="text-sm mt-2 text-gray-500">Dec 20, 2023</p>
-        </div>
+        .scroll-container {
+          overflow-y: auto;
+          height: 600px; /* 可以根据需要调整高度 */
+          position: relative;
+        }
+        .time-slot {
+          width: 100px; /* 可以根据实际情况调整宽度 */
+          position: absolute;
+          left: 0;
+        }
+        .events-container {
+          margin-left: 100px; /* 应与.time-slot的宽度相同 */
+        }
+      </style>
+          <style>
+            .sticky {
+              position: sticky;
+              top: 0;
+              background: white;
+              z-index: 10;
+            }
+            .date-active {
+              background-color: rgb(140, 122, 255);
+              color: white;
+              border-radius: 0%;
+            }
+          </style>
         <style>
-            html, body {
-                height: 100%;
-                margin: 0;
+  .date-number {
+    cursor: pointer;
+    margin-top: 0.5rem; /* 与星期文本保持距离 */
+    padding: 0.5rem; /* 确保数字有足够的空间 */
+    border-radius: 50%; /* 使按钮圆角，当box-shadow作为圆圈时 */
+    position: relative; /* 定位用于z-index */
+    z-index: 1; /* 确保在box-shadow之上 */
+  }
+  .date-number.date-active {
+    box-shadow: 0 0 0 0px blue; /* 创建蓝色圆圈效果，圆圈大小可以通过调整box-shadow的最后一个值来控制 */
+  }
+</style>
+
+<style>
+    .date-number {
+      cursor: pointer;
+      margin-top: 0.5rem; /* 与星期文本保持距离 */
+      padding: 0.5rem; /* 确保数字有足够的空间 */
+      border-radius: 50%; /* 使按钮圆角，当box-shadow作为圆圈时 */
+      position: relative; /* 定位用于z-index */
+      z-index: 1; /* 确保在box-shadow之上 */
+    }
+    .date-number.date-active {
+      box-shadow: 0 0 0 0px blue; /* 创建蓝色圆圈效果，圆圈大小可以通过调整box-shadow的最后一个值来控制 */
+    }
+  </style>
+          <div class="flex justify-between items-center my-4 sticky top-0 flex justify-between text-sm px-10 py-4 bg-white shadow">
+            
+        <!-- Previous Button -->
+        <button id="prev" class="p-1 rounded bg-gray-200 hover:bg-gray-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <!-- Weekdays Header -->
+
+            <div class="flex flex-col items-center">
+              <span>MON</span>
+              <button class="date-number" data-date="11">11</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>TUE</span>
+              <button class="date-number" data-date="12">12</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>WED</span>
+              <button class="date-number" data-date="13">13</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>THU</span>
+              <button class="date-number" data-date="14">14</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>FRI</span>
+              <button class="date-number" data-date="15">15</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>SAT</span>
+              <button class="date-number" data-date="16">16</button>
+            </div>
+            <div class="flex flex-col items-center">
+              <span>SUN</span>
+              <button class="date-number" data-date="17">17</button>
+            </div>
+
+
+          <!-- Next Button -->
+         <button id="next" class="p-1 rounded bg-gray-200 hover:bg-gray-300 text-sm">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+           </svg>
+        </button>
+      </div>
+    </div>
+      <!-- 日历的时间轴 -->
+          <title>Events Calendar</title>
+          <style>
+              .sticky {
+                  position: sticky;
+                  top: 0;
+                  z-index: 10;
+                  background: white;
               }
-              
-              body {
-                display: flex;
-                flex-direction: column;
+              .scroll-container {
+                  overflow-y: auto;
+                  height: 600px;
+                  position: relative;
               }
-              
-              .content {
-                flex: 1 0 auto; /* This will push the footer to the bottom */
+              .event {
+                  position: absolute;
+                  left: 100px; /* Align with the time-slot */
+                  right: 0;
+                  border-radius: 12px;
+                  padding: 12px;
+                  margin: 4px 0;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
               }
-              
-              footer {
-                flex-shrink: 0; /* Prevent footer from shrinking */
-              }
+              /* Different colors for different event types */
+              .nft-event { background-color: #34D399; }
+              .defi-event { background-color: #60A5FA; }
+              .gamefi-event { background-color: #A78BFA; }
+          </style>
+          <!-- Navigation Bar -->
+          <!-- ...existing navigation bar... -->
+      
+          <!-- Calendar Module -->
+          <div class="calendar-module m-8">
+              <!-- ...existing calendar module... -->
+          </div>
+      
+          <!-- Sticky Weekday Header -->
+          <!-- ...existing sticky header... -->
+      
+          <!-- Scrollable Time Slots and Events Container -->
+          <div class="scroll-container p-4">
+              <!-- Time Slot -->
+              <!-- ...existing time slot... -->
+      
+              <!-- Events Container -->
+              <div class="events-container">
+                  <!-- Event Cards -->
+                  <div class="event defi-event" style="top: 8rem; height: 3.5rem;">
+                      <span>Defi project</span>
+                      <div class="text-xs">2:30 AM - 3:30 AM</div>
+                  </div>
+                  <div class="event gamefi-event" style="top: 16rem; height: 3.5rem;">
+                      <span>GameFi Meeting</span>
+                      <div class="text-xs">5:00 PM - 6:00 PM</div>
+                  </div>
+                  <!-- ...other events... -->
+              </div>
+          </div>
+        </div>
+        
+        <!--定义高亮的颜色-->
+          <style>
+            .highlighted {
+            background-color: yellow; /* 你可以选择适合你网站风格的颜色 */
+            }
         </style>
-    </footer>
-</body>
-</html>
+  
+          <script>
+              // JavaScript for generating time slots
+              const timeSlotContainer = document.querySelector('.scroll-container');
+              for (let i = 0; i < 24; i++) {
+                  const timeLabel = document.createElement('div');
+                  timeLabel.className = 'text-xs py-3';
+                  timeLabel.textContent = `${i === 0 || i === 12 ? 12 : i % 12} ${i < 12 ? 'AM' : 'PM'}`;
+                  timeLabel.style.position = 'absolute';
+                  timeLabel.style.top = `${i * 3}rem`; // Assuming each hour block is 3rem tall
+                  timeSlotContainer.appendChild(timeLabel);
+              }
+              const eventsData = {
+        "11": [
+          { type: "nft-event", title: "NFT Launch", time: "12:00 AM - 1:15 AM" },
+        ],
+        "12": [
+          { type: "gamefi-event", title: "Gamefi IEO Launch", time: "12:00 AM - 1:15 AM" },
+        ],
+        "14": [
+          { type: "defi-event", title: "IDO Launch(DeFi)", time: "12:00 AM - 1:15 AM" },
+        ],
+        "17": [
+          { type: "gamefi-event", title: "GameFi Event", time: "12:00 AM - 1:15 AM" },
+        ],
+      };
+      
+      const dates = document.querySelectorAll('.date-number');
+      dates.forEach(date => {
+        date.addEventListener('click', function() {
+          dates.forEach(d => d.classList.remove('date-active'));
+          date.classList.add('date-active');
+          
+          const selectedDate = date.getAttribute('data-date');
+          const eventsForDate = eventsData[selectedDate] || [];
+          
+          const eventsContainer = document.querySelector('.events-container');
+          eventsContainer.innerHTML = '';
+          eventsForDate.forEach(event => {
+            const eventDiv = document.createElement('div');
+            eventDiv.className = `event ${event.type}`;
+            eventDiv.innerHTML = `
+              <span>${event.title}</span>
+              <div class="text-xs">${event.time}</div>
+            `;
+            eventsContainer.appendChild(eventDiv);
+          });
+        });
+      });
+      
+      document.querySelectorAll('.event').forEach(eventDiv => {
+    eventDiv.addEventListener('dblclick', function() {
+        // 切换高亮状态
+        eventDiv.classList.toggle('highlighted');
+    });
+});
+
+// 选择包含所有事件的容器
+const eventsContainer = document.querySelector('.events-container');
+
+// 为这个容器添加一个双击事件监听器
+eventsContainer.addEventListener('dblclick', function(e) {
+    // 检查被双击的元素是否有 'event' 类
+    if (e.target.classList.contains('event')) {
+        // 切换高亮状态
+        e.target.classList.toggle('highlighted');
+    }
+});
+
+          </script>
+      </body>
+      </html>
